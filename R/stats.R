@@ -230,7 +230,7 @@ StatDensityRidges <- ggproto("StatDensityRidges", Stat,
       probs <- quantiles
       probs[probs < 0 | probs > 1] <- NA
     }
-    qx <- na.omit(quantile_fun(data$x, probs = probs))
+    qx <- na.omit(quantile_fun(data$x, weights = data$weight, probs = probs))
 
     # if requested, add data frame for quantile lines
     df_quantiles <- NULL
